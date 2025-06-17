@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:15.0.9
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:17.2.5
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -13,16 +13,16 @@ COPY requirements.txt /tmp/
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r3 \
-        git=2.43.6-r0 \
-        libffi-dev=3.4.4-r3 \
-        py3-wheel=0.42.0-r0 \
-        python3-dev=3.11.11-r0 \
+        git=2.47.2-r0 \
+        libffi-dev=3.4.7-r0 \
+        py3-wheel=0.43.0-r0 \
+        python3-dev=3.12.11-r0 \
     \
     && apk add --no-cache \
-        py3-bcrypt=4.1.1-r0 \
-        py3-cryptography=41.0.7-r0 \
-        py3-pip=23.3.1-r0 \
-        python3=3.11.11-r0 \
+        py3-bcrypt=4.2.1-r0 \
+        py3-cryptography=44.0.0-r0 \
+        py3-pip=24.3.1-r0 \
+        python3==3.12.11-r0 \
     \
     && pip install --upgrade pip==23.0.1 \
     && pip install -r /tmp/requirements.txt \
