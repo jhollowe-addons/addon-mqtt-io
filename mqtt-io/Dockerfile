@@ -24,9 +24,8 @@ RUN \
         py3-pip=24.3.1-r0 \
         python3=3.12.11-r0 \
     \
-    && pip install --upgrade pip==23.0.1 \
+    && pip install --upgrade pip==25.1.1 \
     && pip install -r /tmp/requirements.txt \
-    && pip install Adafruit_DHT==1.4.0 --install-option="--force-pi2" \
     \
     && find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \
