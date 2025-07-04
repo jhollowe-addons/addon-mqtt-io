@@ -23,5 +23,9 @@ if ! bashio::fs.file_exists "${configuration_file}"; then
     bashio::exit.nok
 fi
 
+# work around the autodetect not working
+export BLINKA_FORCEBOARD=RASPBERRY_PI_4B
+export BLINKA_FORCECHIP=BCM2XXX
+
 bashio::log.info "Starting MQTT IO..."
 exec python3 -m mqtt_io "$(bashio::config 'configuration_file')"
